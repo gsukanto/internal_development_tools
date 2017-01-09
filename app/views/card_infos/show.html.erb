@@ -1,0 +1,43 @@
+<%= render "layouts/header_search_form" %>
+<% if @card_infos.present? %>
+    <br />
+    <br />
+    <h3>Card Information:</h3>
+    <br />
+    <table border="1">
+        <thead style="font-weight:bold; text-align: center;">
+            <tr>
+                <% PcmCard.attribute_names.each do |attribute_name| %>
+                    <td><%= attribute_name %></td>
+                <% end %>
+                <td>CVV</td>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;>
+            <% @card_infos.each do |card_info| %>
+            <tr>
+                <% card_info.attributes.values.each do |value| %>
+                    <td><%= value %></td>
+                <% end %>
+                <td>
+                    <button onclick="getCvv(<%= card_info.id %>); this.remove(); ">Get CVV</button>
+                    <label id="<%= card_info.id %>"></label>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <h3> Card Number <%= @cardNumber %> is not found. </h3>
+<% end %>
+
+<script type="text/javascript">
+    function getCvv(card_uid) {
+
+        $.getJSON('/cvv?id=' + card_uid, function(data) {
+            // alert(data.cvv);
+            document.getElementById(card_uid).innerHTML = data.cvv;
+            // $("." + card_uid).value(data.cvv);
+        });
+    }
+</script>

@@ -37,3 +37,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ENV
 gem 'dotenv', '~> 2.1', '>= 2.1.1'
+
+# SOAP Client
+gem 'savon', '~> 2.11', '>= 2.11.1'
