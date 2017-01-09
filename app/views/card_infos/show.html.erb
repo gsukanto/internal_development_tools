@@ -10,10 +10,10 @@
                 <% PcmCard.attribute_names.each do |attribute_name| %>
                     <td><%= attribute_name %></td>
                 <% end %>
-                <td>CVV</td>
+                <td>cvv</td>
             </tr>
         </thead>
-        <tbody style="text-align: center;>
+        <tbody style="text-align: center;">
             <% @card_infos.each do |card_info| %>
             <tr>
                 <% card_info.attributes.values.each do |value| %>
@@ -33,11 +33,8 @@
 
 <script type="text/javascript">
     function getCvv(card_uid) {
-
         $.getJSON('/cvv?id=' + card_uid, function(data) {
-            // alert(data.cvv);
             document.getElementById(card_uid).innerHTML = data.cvv;
-            // $("." + card_uid).value(data.cvv);
         });
     }
 </script>
