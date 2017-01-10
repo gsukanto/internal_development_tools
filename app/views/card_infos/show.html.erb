@@ -7,22 +7,22 @@
     <table border="1">
         <thead style="font-weight:bold; text-align: center;">
             <tr>
+                <td>cvv</td>
                 <% PcmCard.attribute_names.each do |attribute_name| %>
                     <td><%= attribute_name %></td>
                 <% end %>
-                <td>cvv</td>
             </tr>
         </thead>
         <tbody style="text-align: center;">
             <% @card_infos.each do |card_info| %>
             <tr>
-                <% card_info.attributes.values.each do |value| %>
-                    <td><%= value %></td>
-                <% end %>
                 <td>
                     <button onclick="getCvv(<%= card_info.id %>); this.remove(); ">Get CVV</button>
                     <label id="<%= card_info.id %>"></label>
                 </td>
+                <% card_info.attributes.values.each do |value| %>
+                    <td><%= value %></td>
+                <% end %>
             </tr>
             <% end %>
         </tbody>
