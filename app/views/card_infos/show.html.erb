@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
     function getCvv(card_uid) {
-        $.getJSON('/cvv?id=' + card_uid, function(data) {
+        $.getJSON('./cvv?id=' + card_uid, function(data) {
             document.getElementById(card_uid).innerHTML = data.cvv;
         });
     }

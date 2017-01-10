@@ -17,3 +17,6 @@
 
 # ignore jar library
 lib/*.jar
+
+# ignore war file
+*.war

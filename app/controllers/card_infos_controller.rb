@@ -13,8 +13,17 @@ class CardInfosController < ApplicationController
 
   # GET /cvv?card_uid=&exp_date=
   def cvv
-    pcm_card = PcmCard.find(params[:id])
-    cvv = get_cvv(request_cvv(pcm_card.id, pcm_card.expirydate))
-    render json: { cvv: cvv }
+    if params[:id]
+      pcm_card = PcmCard.find(params[:id]) || error_id_not_found
+      cvv = get_cvv(request_cvv(pcm_card.id, pcm_card.expirydate))
+      render json: { cvv: cvv }
+    else
+      error_id_not_found
+    end
   end
+
+  private
+    def error_id_not_found
+      render json: { error: 'Id not found.' }
+    end
 end
