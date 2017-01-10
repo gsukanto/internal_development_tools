@@ -12,4 +12,8 @@
 !/log/.keep
 /tmp
 
+# ignore env
 .env
+
+# ignore jar library
+lib/*.jar
