@@ -5,10 +5,10 @@ class CardInfosController < ApplicationController
   def index
   end
 
-  # GET /show?cardNumber=
+  # GET /show?accountNumber=
   def show
-    @cardNumber = params[:cardNumber]
-    @card_infos = PcmAccount.find_by_productcode(@cardNumber).try(:PcmCard)
+    @accountNumber = params[:accountNumber]
+    @card_infos = PcmAccount.find_by_productcode(@accountNumber).try(:PcmCard)
   end
 
   # GET /cvv?card_uid=&exp_date=

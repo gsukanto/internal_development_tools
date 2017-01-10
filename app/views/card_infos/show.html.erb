@@ -4,7 +4,7 @@
     <br />
     <h3>Card Information:</h3>
     <br />
-    <table border="1">
+    <table border="1" style=" display: block; overflow-x: scroll;">
         <thead style="font-weight:bold; text-align: center;">
             <tr>
                 <td>cvv</td>
@@ -28,7 +28,7 @@
         </tbody>
     </table>
 <% else %>
-    <h3> Card Number <%= @cardNumber %> is not found. </h3>
+    <h3> Account Number <%= @accountNumber %> is not found. </h3>
 <% end %>
 
 <script type="text/javascript">
