@@ -17,7 +17,7 @@
             <% @card_infos.each do |card_info| %>
             <tr>
                 <td>
-                    <button onclick="getCvv(<%= card_info.id %>); this.remove(); ">Get CVV</button>
+                    <button onclick="getCvv('<%= card_info.id %>'); this.remove(); ">Get CVV</button>
                     <label id="<%= card_info.id %>"></label>
                 </td>
                 <% card_info.attributes.values.each do |value| %>

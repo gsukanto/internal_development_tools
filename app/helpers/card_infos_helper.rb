@@ -18,7 +18,7 @@ module CardInfosHelper
     </soap:Envelope>'
 
   def request_cvv(card_uid, exp_date)
-    savon_client = Savon.client(wsdl: get_wsdl_url, env_namespace: :soap)
+    savon_client = Savon.client(endpoint: get_wsdl_url, namespace: '', env_namespace: :soap)
     soap_response = savon_client.call(:get_cvv_rq, xml: XML_REQUEST_TEMPLATE % make_xml_arguments(card_uid, exp_date))
 
     return soap_response.body

@@ -8,7 +8,7 @@ class CardInfosController < ApplicationController
   # GET /show?accountNumber=
   def show
     @accountNumber = params[:accountNumber]
-    @card_infos = PcmAccount.find_by_productcode(@accountNumber).try(:PcmCard)
+    @card_infos = PcmAccount.find(@accountNumber).try(:PcmCard)
   end
 
   # GET /cvv?card_uid=&exp_date=
