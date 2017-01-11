@@ -8,7 +8,8 @@
         <thead style="font-weight:bold; text-align: center;">
             <tr>
                 <td>cvv</td>
-                <% PcmCard.attribute_names.each do |attribute_name| %>
+                <td>cardnumber</td>
+                <% (PcmCard.attribute_names - ['cardnumber']).each do |attribute_name| %>
                     <td><%= attribute_name %></td>
                 <% end %>
             </tr>
@@ -20,7 +21,8 @@
                     <button onclick="getCvv('<%= card_info.id %>'); this.remove(); ">Get CVV</button>
                     <label id="<%= card_info.id %>"></label>
                 </td>
-                <% card_info.attributes.values.each do |value| %>
+                <td><%= card_info.cardnumber %></td>
+                <% card_info.attributes.except(:cardnumber).values.each do |value| %>
                     <td><%= value %></td>
                 <% end %>
             </tr>
